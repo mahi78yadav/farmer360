@@ -141,7 +141,7 @@ Passionate about building scalable AgriTech solutions.
 ## 📬 Contact
 
 For partnership or collaboration:
-Email: your-email@example.com
+Email: mahi78.yadav@example.com
 Location: Hyderabad, Telangana, India
 
 ---
