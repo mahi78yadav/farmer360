@@ -3,208 +3,226 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Farmer360 - Smart Agri Platform</title>
+<title>Farmer360 | Smart Clinics</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f4f6f8;
-    color: #333;
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+
+body{background:#f4f7f6;color:#333;}
+
+nav{
+background:#1b5e20;
+color:white;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
-header {
-    background: linear-gradient(to right, #1b5e20, #2e7d32);
-    color: white;
-    padding: 60px 20px;
-    text-align: center;
+nav h2{font-weight:600;}
+
+.tabs{
+display:flex;
+justify-content:center;
+background:#2e7d32;
 }
 
-header h1 {
-    font-size: 42px;
-    margin-bottom: 10px;
+.tabs button{
+flex:1;
+padding:15px;
+border:none;
+background:#2e7d32;
+color:white;
+font-size:16px;
+cursor:pointer;
 }
 
-.section {
-    padding: 60px 20px;
-    max-width: 1100px;
-    margin: auto;
+.tabs button.active{
+background:#1b5e20;
+font-weight:bold;
 }
 
-.section h2 {
-    text-align: center;
-    color: #2e7d32;
-    margin-bottom: 30px;
+section{
+display:none;
+padding:60px 20px;
+max-width:1000px;
+margin:auto;
 }
 
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+section.active{display:block;}
+
+.card{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+margin-top:20px;
 }
 
-.card {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    flex: 1 1 300px;
-    max-width: 350px;
+img{
+width:100%;
+border-radius:10px;
+margin-bottom:20px;
 }
 
-.highlight {
-    background: #e8f5e9;
-    padding: 30px;
-    border-radius: 12px;
-    text-align: center;
-    font-size: 18px;
+input, select{
+width:100%;
+padding:10px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:5px;
 }
 
-.stats {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    text-align: center;
+button.save{
+background:#1b5e20;
+color:white;
+padding:10px 20px;
+border:none;
+border-radius:20px;
+cursor:pointer;
+margin-top:10px;
 }
 
-.stat h3 {
-    font-size: 32px;
-    color: #1b5e20;
+button.export{
+background:#1565c0;
+color:white;
+padding:8px 15px;
+border:none;
+border-radius:20px;
+cursor:pointer;
+margin-top:10px;
 }
 
-.cta {
-    background: #2e7d32;
-    color: white;
-    text-align: center;
-    padding: 50px 20px;
-}
-
-button {
-    padding: 10px 20px;
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.lang-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: white;
-    color: #2e7d32;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #1b5e20;
-    color: white;
+footer{
+background:#1b5e20;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
 }
 </style>
 </head>
-
 <body>
 
-<button class="lang-btn" onclick="toggleLanguage()">తెలుగు</button>
+<nav>
+<h2>Farmer360 Smart Clinics</h2>
+</nav>
 
-<header>
-    <h1 id="title">Farmer360</h1>
-    <p id="tagline">Smart Agri | Dairy | Poultry Advisory Platform</p>
-    <p id="mission">Improving Small Farmer Productivity with Technology</p>
-</header>
-
-<div class="section">
-    <h2 id="problem-title">The Problem</h2>
-    <div class="card-container">
-        <div class="card">
-            <h3 id="p1-title">Low Productivity</h3>
-            <p id="p1-text">Small farmers lack scientific farming knowledge and proper guidance.</p>
-        </div>
-        <div class="card">
-            <h3 id="p2-title">Disease Losses</h3>
-            <p id="p2-text">Crop, dairy, and poultry diseases reduce farmer income significantly.</p>
-        </div>
-    </div>
+<div class="tabs">
+<button class="active" onclick="openTab('agri')">Agri Clinic</button>
+<button onclick="openTab('dairy')">Dairy Clinic</button>
+<button onclick="openTab('poultry')">Poultry Clinic</button>
 </div>
 
-<div class="section">
-    <h2 id="solution-title">Our Solution</h2>
-    <div class="card-container">
-        <div class="card">
-            <h3>Agri Clinic</h3>
-            <p id="s1">Soil testing, crop advisory, pest alerts.</p>
-        </div>
-        <div class="card">
-            <h3>Dairy Clinic</h3>
-            <p id="s2">Milk tracking, vaccination reminders.</p>
-        </div>
-        <div class="card">
-            <h3>Poultry Clinic</h3>
-            <p id="s3">Mortality tracking, feed optimization.</p>
-        </div>
-    </div>
+<!-- AGRI -->
+<section id="agri" class="active">
+<h2>Agri Clinic</h2>
+<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" alt="Agriculture">
+<div class="card">
+<h3>Farmer Registration</h3>
+<input type="text" id="agriName" placeholder="Farmer Name">
+<input type="text" id="agriVillage" placeholder="Village">
+<input type="text" id="agriCrop" placeholder="Crop Type">
+<button class="save" onclick="saveData('Agri')">Save Farmer</button>
+<button class="export" onclick="exportXML()">Export XML</button>
+<div id="agriList"></div>
 </div>
+</section>
 
-<div class="section highlight" id="location">
-    2 Acre Smart Demonstration Farm Near Hyderabad
+<!-- DAIRY -->
+<section id="dairy">
+<h2>Dairy Clinic</h2>
+<img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994" alt="Dairy Farm">
+<div class="card">
+<h3>Farmer Registration</h3>
+<input type="text" id="dairyName" placeholder="Farmer Name">
+<input type="number" id="cowCount" placeholder="Number of Cows">
+<button class="save" onclick="saveData('Dairy')">Save Farmer</button>
+<button class="export" onclick="exportXML()">Export XML</button>
+<div id="dairyList"></div>
 </div>
+</section>
 
-<div class="section">
-    <h2 id="business-title">Business Model</h2>
-    <div class="card-container">
-        <div class="card">
-            <h3>Basic</h3>
-            <p id="b1">₹99/month – Alerts & WhatsApp Advisory</p>
-        </div>
-        <div class="card">
-            <h3>Silver</h3>
-            <p id="b2">₹299/month – Full App + Consultation</p>
-        </div>
-        <div class="card">
-            <h3>Gold</h3>
-            <p id="b3">₹999/month – On-field Visit</p>
-        </div>
-    </div>
+<!-- POULTRY -->
+<section id="poultry">
+<h2>Poultry Clinic</h2>
+<img src="https://images.unsplash.com/photo-1589927986089-35812388d1f4" alt="Poultry Farm">
+<div class="card">
+<h3>Farmer Registration</h3>
+<input type="text" id="poultryName" placeholder="Farmer Name">
+<input type="number" id="birdCount" placeholder="Number of Birds">
+<button class="save" onclick="saveData('Poultry')">Save Farmer</button>
+<button class="export" onclick="exportXML()">Export XML</button>
+<div id="poultryList"></div>
 </div>
-
-<div class="cta">
-    <h2 id="vision">Building a Profitable & Impact-Driven Agri Startup</h2>
-</div>
+</section>
 
 <footer>
-    © 2026 Farmer360
+© 2026 Farmer360 | Hyderabad Smart Demo Farm
 </footer>
 
 <script>
-let telugu = false;
 
-function toggleLanguage() {
-    telugu = !telugu;
-
-    if(telugu){
-        document.getElementById("problem-title").innerText = "సమస్య";
-        document.getElementById("solution-title").innerText = "మా పరిష్కారం";
-        document.getElementById("business-title").innerText = "వ్యాపార విధానం";
-        document.getElementById("mission").innerText = "సాంకేతికతతో చిన్న రైతుల ఆదాయం పెంచడం";
-        document.getElementById("p1-title").innerText = "తక్కువ దిగుబడి";
-        document.getElementById("p1-text").innerText = "చిన్న రైతులకు శాస్త్రీయ వ్యవసాయ మార్గదర్శకం లేదు.";
-        document.getElementById("p2-title").innerText = "వ్యాధుల నష్టం";
-        document.getElementById("p2-text").innerText = "పంటలు, పాలు, కోళ్లలో వ్యాధుల వల్ల నష్టం.";
-        document.getElementById("s1").innerText = "మట్టి పరీక్ష, పంట సలహాలు, పురుగు హెచ్చరికలు.";
-        document.getElementById("s2").innerText = "పాలు ట్రాకింగ్, టీకా గుర్తింపులు.";
-        document.getElementById("s3").innerText = "మరణాల ట్రాకింగ్, ఆహార మెరుగుదల.";
-        document.getElementById("b1").innerText = "₹99/నెల – అలర్ట్స్ & వాట్సాప్ సలహాలు";
-        document.getElementById("b2").innerText = "₹299/నెల – పూర్తి యాప్ + సలహా";
-        document.getElementById("b3").innerText = "₹999/నెల – ఫీల్డ్ విజిట్";
-        document.getElementById("location").innerText = "హైదరాబాద్ సమీపంలో 2 ఎకరాల స్మార్ట్ డెమో ఫార్మ్";
-        document.getElementById("vision").innerText = "లాభదాయక మరియు ప్రభావవంతమైన అగ్రి స్టార్టప్ నిర్మాణం";
-        document.querySelector(".lang-btn").innerText = "English";
-    } else {
-        location.reload();
-    }
+function openTab(tabName){
+document.querySelectorAll("section").forEach(sec=>sec.classList.remove("active"));
+document.querySelectorAll(".tabs button").forEach(btn=>btn.classList.remove("active"));
+document.getElementById(tabName).classList.add("active");
+event.target.classList.add("active");
 }
+
+function saveData(type){
+let farmer = {};
+if(type==="Agri"){
+farmer.name = document.getElementById("agriName").value;
+farmer.detail = document.getElementById("agriCrop").value;
+}
+if(type==="Dairy"){
+farmer.name = document.getElementById("dairyName").value;
+farmer.detail = document.getElementById("cowCount").value + " cows";
+}
+if(type==="Poultry"){
+farmer.name = document.getElementById("poultryName").value;
+farmer.detail = document.getElementById("birdCount").value + " birds";
+}
+
+let data = JSON.parse(localStorage.getItem("farmers")) || [];
+data.push({type:type, ...farmer});
+localStorage.setItem("farmers", JSON.stringify(data));
+alert("Farmer Saved!");
+displayData();
+}
+
+function displayData(){
+let data = JSON.parse(localStorage.getItem("farmers")) || [];
+document.getElementById("agriList").innerHTML="";
+document.getElementById("dairyList").innerHTML="";
+document.getElementById("poultryList").innerHTML="";
+
+data.forEach(f=>{
+let div = "<p>"+f.name+" - "+f.detail+"</p>";
+if(f.type==="Agri") document.getElementById("agriList").innerHTML+=div;
+if(f.type==="Dairy") document.getElementById("dairyList").innerHTML+=div;
+if(f.type==="Poultry") document.getElementById("poultryList").innerHTML+=div;
+});
+}
+
+function exportXML(){
+let data = JSON.parse(localStorage.getItem("farmers")) || [];
+let xml = "<farmers>";
+data.forEach(f=>{
+xml += "<farmer><type>"+f.type+"</type><name>"+f.name+"</name><detail>"+f.detail+"</detail></farmer>";
+});
+xml += "</farmers>";
+
+let blob = new Blob([xml], {type:"application/xml"});
+let a = document.createElement("a");
+a.href = URL.createObjectURL(blob);
+a.download = "farmers.xml";
+a.click();
+}
+
+displayData();
+
 </script>
 
 </body>
